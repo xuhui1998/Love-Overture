@@ -19,7 +19,7 @@ exports.main = async (event, context) => { //event为客户端上传的参数
 	// 通过 action 判断请求对象
 
 	let result = {};
-	switch (event.action) { // 通过 code 获取用户 session
+	switch (event.action) { // 通过 code 获取用户 session 
 		case 'code2Session':
 			const res_session = await uniCloud.httpclient.request(
 				'https://api.weixin.qq.com/sns/jscode2session', {

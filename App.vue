@@ -24,4 +24,9 @@ export default {
 
 <style>
 /*每个页面公共css */ 
+@import './common/uni.css';
+/*引入图标库*/
+@import './common/animate.css';
+@import './common/icon.css';
+@import './common/flexCoomn.css';
 </style>
