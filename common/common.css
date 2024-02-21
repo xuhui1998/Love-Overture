@@ -1,0 +1,17 @@
+.mt-20 {
+	margin-top: 20px;
+}
+
+.margin-auto {
+	margin: 0 auto;
+}
+
+.btn {
+	background: #424242;
+	color: #FFF;
+	text-align: center;
+	margin-top: 60rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	border-radius: 30rpx;
+}

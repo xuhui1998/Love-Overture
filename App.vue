@@ -22,11 +22,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 /*每个页面公共css */ 
 @import './common/uni.css';
 /*引入图标库*/
 @import './common/animate.css';
 @import './common/icon.css';
 @import './common/flexCoomn.css';
+@import './common/common.css';
+@import "@/uni_modules/uview-ui/index.scss";
 </style>

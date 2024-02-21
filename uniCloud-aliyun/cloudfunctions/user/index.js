@@ -1,21 +1,13 @@
-// 'use strict';
-// exports.main = async (event, context) => {
-// 	//event为客户端上传的参数
-// 	console.log('event : ', event)
-
-// 	//返回数据给客户端
-// 	return event
-// };
 'use strict';
 const mp_wx_data = {
 	AppID: 'wxff2cbb76903cca9d',
 	AppSecret: 'f9f758cd4146203bedba835f3daa00b1'
 }
 exports.main = async (event, context) => { //event为客户端上传的参数
-	// console.log('event : ', JSON.stringify(event))
+	// console.log('event : ', event)
 
 	const db = uniCloud.database(); // 获取 `user` 集合的引用
-	const pro_user = db.collection('pro-user'); // 循环判断客户端传递过来的 action
+	const pro_user = db.collection('pro_user'); // 循环判断客户端传递过来的 action
 	// 通过 action 判断请求对象
 
 	let result = {};
@@ -33,7 +25,6 @@ exports.main = async (event, context) => { //event为客户端上传的参数
 					dataType: 'json'
 				}
 			)
-			console.log(res_session, 'res_session')
 			const success = res_session.status === 200 && res_session.data && res_session.data.openid
 			if (!success) {
 				return {
@@ -44,6 +35,7 @@ exports.main = async (event, context) => { //event为客户端上传的参数
 			const res_user = await pro_user.where({
 				mp_wx_openid: res_session.data.openid
 			}).get()
+			// console.log('res_user', res_user)
 			if (res_user.data && res_user.data.length === 0) { // 没有用户信息，进入注册
 				const register = await uniCloud.callFunction({
 					name: 'user',
@@ -70,11 +62,12 @@ exports.main = async (event, context) => { //event为客户端上传的参数
 			}
 			break;
 		case 'register':
+			console.log('register:', event, 'result:', result)
 			const res_reg = await pro_user.add({
 				nickName: event.user_info.nickName,
 				avatarUrl: event.user_info.avatarUrl,
 				mp_wx_openid: event.open_id,
-				register_date: new Date().getTime()
+				create_time: new Date().getTime(),
 			}) 
 			if (res_reg.id) {
 				const res_reg_val = await uniCloud.callFunction({
@@ -98,7 +91,7 @@ exports.main = async (event, context) => { //event为客户端上传的参数
 				nickName: event.user_info.nickName,
 				avatarUrl: event.user_info.avatarUrl,
 				mp_wx_openid: event.open_id
-			}) 
+			})
 			const res_update_val = await uniCloud.callFunction({
 				name: 'user',
 				data: {

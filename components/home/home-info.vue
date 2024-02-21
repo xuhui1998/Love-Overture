@@ -11,22 +11,23 @@
 
 <script>
 	export default{
-		props:{},
+		props:{
+			userInfo: {
+				type: Object
+			}
+		},
 		data(){
 			return {
-				userInfo: {}
+				
 			}
 		},
 		methods:{
 			touserspace(){
 				uni.navigateTo({
-					url:'../../pages/userspace/userspace'
+					url:'/pages/edit/edit'
 				})
-			}
+			},
 		},
-		mounted() {
-			this.userInfo = JSON.parse(uni.getStorageSync('userInfo'))
-		}
 	}
 </script>
 

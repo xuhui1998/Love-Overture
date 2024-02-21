@@ -34,14 +34,6 @@
 									providerName = '微信登录';
 									icon = 'weixin';
 									break;
-								case 'qq':
-									providerName = 'QQ登录';
-									icon = 'QQ';
-									break;
-								case 'sinaweibo':
-									providerName = '新浪微博登录';
-									icon = 'xinlangweibo';
-									break;
 							}
 							return {
 								name: providerName,
@@ -51,7 +43,7 @@
 						});
 					},
 					fail: (error) => {
-						//  console.log('获取登录通道失败', error);
+						 console.log('获取登录通道失败', error);
 					}
 				});
 			},
@@ -64,7 +56,8 @@
 						_this.userInfo = result.userInfo
 						_this.wxLogin()
 					},
-					fail: () => {
+					fail: (err) => {
+						console.log(err);
 						uni.hideLoading();
 						uni.showModal({
 							content: '获取用户信息失败',
@@ -76,7 +69,7 @@
 			wxLogin() {
 				const _this = this
 				uni.showLoading({
-					title: '加载中'
+					title: '登录中...'
 				});
 
 				uni.login({
