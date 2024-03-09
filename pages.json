@@ -11,15 +11,7 @@
 			}
 		},
 		{
-			"path": "pages/tabbar/tabbar-2/tabbar-2",
-			"style": {}
-		},
-		{
-			"path": "pages/tabbar/tabbar-3/tabbar-3",
-			"style": {}
-		},
-		{
-			"path": "pages/tabbar/tabbar-4/tabbar-4",
+			"path": "pages/send/send",
 			"style": {}
 		},
 		{
@@ -29,15 +21,15 @@
 			}
 		},
 		{
-			"path": "pages/tabbar-3-detial/tabbar-3-release/tabbar-3-release",
+			"path": "pages/send-detail/send-team/index",
 			"style": {}
 		},
 		{
-			"path": "pages/tabbar-3-detial/tabbar-3-video/tabbar-3-video",
+			"path": "pages/send-detail/send-cp/index",
 			"style": {}
 		},
 		{
-			"path": "pages/tabbar-3-detial/tabbar-3-qa/tabbar-3-qa",
+			"path": "pages/send-detail/send-qa/index",
 			"style": {}
 		}
 	    ,{
@@ -80,7 +72,7 @@
 			},
 			//#ifdef MP-WEIXIN
 			{
-				"pagePath": "pages/tabbar/tabbar-3/tabbar-3",
+				"pagePath": "pages/send/send",
 				"iconPath": "static/img/tabbar/release.png",
 				"selectedIconPath": "static/img/tabbar/release.png",
 				"text": ""
@@ -88,7 +80,7 @@
 			//#endif
 			//#ifndef MP-WEIXIN
 			{
-				"pagePath": "pages/tabbar/tabbar-3/tabbar-3",
+				"pagePath": "pages/send/send",
 				"iconPath": "static/img/tabbar/release.png",
 				"selectedIconPath": "static/img/tabbar/release.png"
 			},
